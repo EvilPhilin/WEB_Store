@@ -65,7 +65,7 @@ export class Item {
     this._categoryId = n;
   }
   set price(n: number) {
-    this._price;
+    this._price=n;
   }
 }
 
