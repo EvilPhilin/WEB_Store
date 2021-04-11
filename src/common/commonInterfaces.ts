@@ -1,13 +1,15 @@
-import {Customer,Order,Item} from "./generalClasses"
+import {Customer,Order,Item} from "./commonClasses"
 
 
 interface IDataBaseController{
     notifyPushCustomer(cust:Customer):void;
     notifyPushOrder(order:Order):void;
     notifyGetOrderInfo(orderId:number):Order;
-    notifyGetItemInfo(itemId:number):void;
+    notifyGetItemInfdadawdao(itemId:number):void;
     notifyGetListOfItems():Array<Item>;
     notifyGetCustomerOrders(custId:number):Array<Order>
+    notifyGetIdOfCustomers():Set<number>
+    notifyGetIdOfOrders():Set<number>
     
 }
 
