@@ -1,10 +1,10 @@
 //const Mongoose = require('mongoose');
 const Express = require('express');
 
-import Category from './category';
-import Customer from './customer';
-import Type from './model';
-import Order from './order';
+//import Category from './category';
+//import Customer from './customer';
+//import Type from './model';
+//import Order from './order';
 
 //let database = Mongoose.Connection;
 
