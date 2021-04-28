@@ -1,4 +1,4 @@
-const Mongoose = require('mongoose');
+//const Mongoose = require('mongoose');
 const Express = require('express');
 
 import Category from './category';
@@ -6,28 +6,28 @@ import Customer from './customer';
 import Type from './model';
 import Order from './order';
 
-let database = Mongoose.Connection;
+//let database = Mongoose.Connection;
 
-const url: string = "mongodb://localhost:27017/store";
+//const url: string = "mongodb://localhost:27017/store";
 
-Mongoose.connect(url,
-{
-    useNewUrlParser: true,
-    useFindAndModify: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-});
-database = Mongoose.connection;
+// Mongoose.connect(url,
+// {
+//     useNewUrlParser: true,
+//     useFindAndModify: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+// });
+// database = Mongoose.connection;
 
-database.once("open", function()
-{
-    console.log("Connected to database");
-});
+// database.once("open", function()
+// {
+//     console.log("Connected to database");
+// });
 
-database.on("error", function()
-{
-    console.log("Error connecting to database");
-});
+// database.on("error", function()
+// {
+//     console.log("Error connecting to database");
+// });
 
 // Category.create({ id_category: 1, name: 'Keyboards' });
 // Customer.create({ id_customer: 1, fname: 'Alexei', lname: 'Stepanov', date_of_birth: '1/1/1', location: 'Uganda'});

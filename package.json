@@ -13,9 +13,11 @@
   },
   "devDependencies": {
     "@types/mongodb": "^3.6.12",
-    "@types/mongoose": "^5.10.4"
+    "@types/mongoose": "^5.10.4",
+    "@types/node": "^15.0.1"
   },
   "scripts": {
+    "start": "node back/database.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
