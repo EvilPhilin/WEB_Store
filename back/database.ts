@@ -42,8 +42,7 @@ app.use((request: any, response: any) =>
     response.send('<h1>Серёга тестит хттп</h1>');
 })
 
-let port = 5000;
-
+let port = process.env.PORT || 5000;
 
 http.listen(port, function()
 {
