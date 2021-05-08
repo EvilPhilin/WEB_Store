@@ -1,14 +1,13 @@
-const Mongoose = require('mongoose');
-const Express = require('express');
+import Mongoose from 'mongoose';
+import Express from 'express';
 
-import Category from './category';
-import Customer from './customer';
-import Type from './model';
-import Order from './order';
-
-let database = Mongoose.Connection;
+import Category from './Schemas/category.js';
+import Customer from './Schemas/customer.js';
+import Type from './Schemas/model.js';
+import Order from './Schemas/order.js';
 
 const url: string = "mongodb+srv://Evil_Philin:83913932133@webstoreproject.1rfah.mongodb.net/web_store?retryWrites=true&w=majority";
+//const url: string = "mongodb://localhost:27017/store?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
 
 Mongoose.connect(url,
 {
@@ -18,7 +17,7 @@ Mongoose.connect(url,
     useCreateIndex: true,
 });
 
-database = Mongoose.connection;
+let database = Mongoose.connection;
 
 database.once("open", function()
 {
@@ -30,13 +29,15 @@ database.on("error", function()
     console.log("Error connecting to database");
 });
 
-Category.create({ id_category: 1, name: 'Keyboards' });
-Customer.create({ id_customer: 1, fname: 'Alexei', lname: 'Stepanov', date_of_birth: '1/1/1', location: 'Uganda'});
-Type.create({ id_model: 1, name: 'Ya tebe shas potikayu', price: 199, category: 1, storage: 50});
-Order.create({ id_order: 1, customer: 1, type: 1, date_of_order: '1/1/1', date_of_delivery: '2/1/1', delivery_type: 'Airdrop'});
+await Category.find( {id_category: 1}, function(err, cat)
+{
+    console.log(cat);
+});
+
+import Http from 'http';
 
 const app = Express();
-const http = require('http').Server(app);
+const http = new Http.Server(app);
 
 app.use((request: any, response: any) =>
 {

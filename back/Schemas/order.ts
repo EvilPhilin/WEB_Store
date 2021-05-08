@@ -1,6 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mg from 'mongoose';
 
-const orderSchema: Schema = new Schema(
+const orderSchema: mg.Schema = new mg.Schema(
     {
         id_order: { type: Number, required: true, unique: true },
         customer: { type: Number, required: true },
@@ -11,7 +11,7 @@ const orderSchema: Schema = new Schema(
     }
 );
 
-export interface IOrder extends Document
+export interface IOrder extends mg.Document
 {
     id_order: number,
     customer: number,
@@ -21,4 +21,4 @@ export interface IOrder extends Document
     delivery_type: string
 };
 
-export default mongoose.model<IOrder>('orders', orderSchema);
+export default mg.model<IOrder>('orders', orderSchema);

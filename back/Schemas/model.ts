@@ -1,6 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mg from 'mongoose';
 
-const modelSchema: Schema = new Schema(
+const modelSchema: mg.Schema = new mg.Schema(
     {
         id_model: { type: Number, required: true, unique: true },
         name: { type: String, required: true, unique: true },
@@ -10,7 +10,7 @@ const modelSchema: Schema = new Schema(
     }
 );
 
-export interface IModel extends Document
+export interface IModel extends mg.Document
 {
     id_model: number,
     name: string,
@@ -19,4 +19,4 @@ export interface IModel extends Document
     storage: number
 };
 
-export default mongoose.model<IModel>('models', modelSchema);
+export default mg.model<IModel>('models', modelSchema);
