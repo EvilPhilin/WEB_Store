@@ -30,7 +30,7 @@ database.on("error", function()
     console.log("Error connecting to database");
 });
 
-let order: any = await DBreq.order_info(1);
+let order: any = await DBreq.customer_orders(1);
 
 const app = Express();
 const http = new Http.Server(app);

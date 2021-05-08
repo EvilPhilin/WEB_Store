@@ -16,7 +16,7 @@ database.once("open", function () {
 database.on("error", function () {
     console.log("Error connecting to database");
 });
-let order = await DBreq.order_info(1);
+let order = await DBreq.customer_orders(1);
 const app = Express();
 const http = new Http.Server(app);
 app.get('/', (request, response) => {
