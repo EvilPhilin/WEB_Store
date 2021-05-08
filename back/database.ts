@@ -30,14 +30,14 @@ database.on("error", function()
     console.log("Error connecting to database");
 });
 
-let order: any = await DBreq.customer_orders(1);
+let price: any = await DBreq.sum_for_period(1, "0000/01/01", "1234/12/30");
 
 const app = Express();
 const http = new Http.Server(app);
 
 app.get('/', (request: any, response: any) =>
 {
-    response.send(order);
+    response.send(price);
 })
 
 let port = process.env.PORT || 5000;

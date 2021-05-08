@@ -1,3 +1,4 @@
+import Type from './Schemas/model.js';
 import Order from './Schemas/order.js';
 class funcs {
     async order_info(__id) {
@@ -16,6 +17,33 @@ class funcs {
                 return -1;
             res = orders;
         });
+        return res;
+    }
+    async good_info(__id) {
+        let res;
+        await Type.find({ id_model: __id }, function (err, type) {
+            if (err)
+                return -1;
+            res = type;
+        });
+        return res;
+    }
+    async sum_for_period(__id, start, end) {
+        let query;
+        let res = 0;
+        await Order.find({ date_of_order: { "$gte": start, "$lte": end } }, function (err, orders) {
+            if (err)
+                return -1;
+            query = orders;
+        });
+        let i;
+        for (i of query) {
+            await Type.find({ id_model: i.type }, function (err, mod) {
+                if (err)
+                    return -1;
+                res += mod[0].price;
+            });
+        }
         return res;
     }
 }

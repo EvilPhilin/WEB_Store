@@ -16,11 +16,11 @@ database.once("open", function () {
 database.on("error", function () {
     console.log("Error connecting to database");
 });
-let order = await DBreq.customer_orders(1);
+let price = await DBreq.sum_for_period(1, "0000/01/01", "1234/12/30");
 const app = Express();
 const http = new Http.Server(app);
 app.get('/', (request, response) => {
-    response.send(order);
+    response.send(price);
 });
 let port = process.env.PORT || 5000;
 http.listen(port, function () {
