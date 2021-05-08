@@ -11,18 +11,12 @@ class funcs {
     }
     async customer_orders(__id) {
         let res;
-        await Order.find({ customer: __id }, function (err, order) {
+        await Order.find({ customer: __id }, function (err, orders) {
             if (err)
                 return -1;
-            res = {
-                id_order: order[0].id_order,
-                customer: order[0].customer,
-                type: order[0].type,
-                date_of_order: order[0].date_of_order,
-                date_of_delivery: order[0].date_of_delivery,
-                delivery_type: order[0].delivery_type
-            };
+            res = orders;
         });
+        return res;
     }
 }
 ;
