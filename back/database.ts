@@ -38,7 +38,7 @@ app.get('/', (request: any, response: any) =>
     response.send("<h1>Main page</h1>");
 })
 
-app.get('/func', (request: any, response: any) =>
+app.get('/func', async (request: any, response: any) =>
 {
     let func: string = request.get('command');
     let result: any;
@@ -46,22 +46,22 @@ app.get('/func', (request: any, response: any) =>
     {
         case 'good_info':
         {
-            result = DBreq.good_info(parseInt(request.get('arg1')));
+            result = await DBreq.good_info(parseInt(request.get('arg1')));
             break;
         }
         case 'order_info':
         {
-            result = DBreq.order_info(parseInt(request.get('arg1')));
+            result = await DBreq.order_info(parseInt(request.get('arg1')));
             break;
         }
         case 'customer_orders':
         {
-            result = DBreq.customer_orders(parseInt(request.get('arg1')));
+            result = await DBreq.customer_orders(parseInt(request.get('arg1')));
             break;
         }
         case 'sum_for_period':
         {
-            result = DBreq.sum_for_period(parseInt(request.get('arg1')), request.get('arg2'), request.get('arg3'));
+            result = await DBreq.sum_for_period(parseInt(request.get('arg1')), request.get('arg2'), request.get('arg3'));
             break;
         }
         default:
