@@ -21,7 +21,7 @@ app.get('/', (request, response) => {
     response.send("<h1>Main page</h1>");
 });
 app.get('/func', (request, response) => {
-    response.send(JSON.stringify(request.headers));
+    response.send(request.get('test1'));
 });
 let port = process.env.PORT || 5000;
 http.listen(port, function () {

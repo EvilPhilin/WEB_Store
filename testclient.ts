@@ -5,6 +5,7 @@ const url = 'mus-market.herokuapp.com';
 let options =
 {
     hostname: url,
+    path: '/func',
 
     headers:
     {

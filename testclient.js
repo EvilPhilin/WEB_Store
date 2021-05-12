@@ -2,6 +2,7 @@ import Http from 'http';
 const url = 'mus-market.herokuapp.com';
 let options = {
     hostname: url,
+    path: '/func',
     headers: {
         test1: 'Test1',
         test2: 'Test2'

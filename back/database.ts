@@ -40,7 +40,7 @@ app.get('/', (request: any, response: any) =>
 
 app.get('/func', (request: any, response: any) =>
 {
-    response.send(JSON.stringify(request.headers));
+    response.send(request.get('test1'));
 })
 
 let port = process.env.PORT || 5000;
