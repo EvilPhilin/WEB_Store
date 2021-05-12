@@ -2,8 +2,6 @@ import Http from 'http';
 
 const url = 'mus-market.herokuapp.com';
 
-
-
 let options =
 {
     hostname: url,
@@ -11,7 +9,7 @@ let options =
 
     headers:
     {
-        command: 'sum_for_period',// good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
+        command: 'customer_orders',// good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
         arg1: '1',
         arg2: '0000/01/01',
         arg3: '1234/12/30'
