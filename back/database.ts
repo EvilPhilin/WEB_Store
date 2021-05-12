@@ -34,6 +34,11 @@ app.get('/', (request: any, response: any) =>
     response.send("<h1>Main page</h1>");
 })
 
+app.get('/args', (request: any, response: any) =>
+{
+    response.send({ a1: request.get('arg1'), a2: request.get('arg1'), a3: request.get('arg1')});
+})
+
 app.get('/func', async (request: any, response: any) =>
 {
     let result: any = await ClientHandler(request);

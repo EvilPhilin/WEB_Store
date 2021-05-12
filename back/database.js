@@ -21,6 +21,9 @@ const http = new Http.Server(app);
 app.get('/', (request, response) => {
     response.send("<h1>Main page</h1>");
 });
+app.get('/args', (request, response) => {
+    response.send({ a1: request.get('arg1'), a2: request.get('arg1'), a3: request.get('arg1') });
+});
 app.get('/func', async (request, response) => {
     let result = await ClientHandler(request);
     response.send(result);
