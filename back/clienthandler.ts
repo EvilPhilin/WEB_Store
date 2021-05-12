@@ -23,7 +23,9 @@ export default async function(request: any)
         }
         case 'sum_for_period':
         {
-            result = await DBreq.sum_for_period(parseInt(request.get('arg1')), request.get('arg2'), request.get('arg3'));
+            let start: string =  request.get('arg2');
+            let end: string =  request.get('arg3');
+            result = await DBreq.sum_for_period(parseInt(request.get('arg1')), start, end);
             break;
         }
         default:
