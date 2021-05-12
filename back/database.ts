@@ -36,7 +36,8 @@ app.get('/', (request: any, response: any) =>
 
 app.get('/func', async (request: any, response: any) =>
 {
-    response.send(await ClientHandler(request));
+    let result: any = await ClientHandler(request);
+    response.send(result);
 })
 
 let port = process.env.PORT || 5000;

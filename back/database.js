@@ -22,7 +22,8 @@ app.get('/', (request, response) => {
     response.send("<h1>Main page</h1>");
 });
 app.get('/func', async (request, response) => {
-    response.send(await ClientHandler(request));
+    let result = await ClientHandler(request);
+    response.send(result);
 });
 let port = process.env.PORT || 5000;
 http.listen(port, function () {
