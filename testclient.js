@@ -6,8 +6,8 @@ let options = {
     headers: {
         command: 'order_info',
         arg1: '1',
-        arg2: '0000/01/01',
-        arg3: '1234/12/30'
+        arg2: "0000/01/01",
+        arg3: "1234/12/30"
     }
 };
 Http.get(options, (res) => {
