@@ -2,7 +2,7 @@ import Http from 'http';
 const url = 'mus-market.herokuapp.com';
 let options = {
     hostname: url,
-    path: '/args',
+    path: '/func',
     headers: {
         command: 'sum_for_period',
         arg1: '1',

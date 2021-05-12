@@ -20,13 +20,16 @@ const app = Express();
 const http = new Http.Server(app);
 app.get('/', (request, response) => {
     response.send("<h1>Main page</h1>");
+    response.end();
 });
 app.get('/args', (request, response) => {
-    response.send({ a1: request.get('arg1'), a2: request.get('arg1'), a3: request.get('arg1') });
+    response.send({ a1: request.get('arg1'), a2: request.get('arg2'), a3: request.get('arg3') });
+    response.end();
 });
 app.get('/func', async (request, response) => {
     let result = await ClientHandler(request);
     response.send(result);
+    response.end();
 });
 let port = process.env.PORT || 5000;
 http.listen(port, function () {
