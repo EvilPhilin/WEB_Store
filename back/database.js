@@ -1,6 +1,7 @@
 import Mongoose from 'mongoose';
 import Express from 'express';
 import Http from 'http';
+import DBreq from './dbrequests.js';
 const url = "mongodb+srv://Evil_Philin:83913932133@webstoreproject.1rfah.mongodb.net/web_store?retryWrites=true&w=majority";
 Mongoose.connect(url, {
     useNewUrlParser: true,
@@ -21,7 +22,37 @@ app.get('/', (request, response) => {
     response.send("<h1>Main page</h1>");
 });
 app.get('/func', (request, response) => {
-    response.send(request.get('test1'));
+    let func = request.get('command');
+    let result;
+    switch (func) //good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
+     {
+        case 'good_info':
+            {
+                result = DBreq.good_info(parseInt(request.get('arg1')));
+                break;
+            }
+        case 'order_info':
+            {
+                result = DBreq.order_info(parseInt(request.get('arg1')));
+                break;
+            }
+        case 'customer_orders':
+            {
+                result = DBreq.customer_orders(parseInt(request.get('arg1')));
+                break;
+            }
+        case 'sum_for_period':
+            {
+                result = DBreq.sum_for_period(parseInt(request.get('arg1')), request.get('arg2'), request.get('arg3'));
+                break;
+            }
+        default:
+            {
+                result = 'Wrong request type!';
+                break;
+            }
+    }
+    response.send(result);
 });
 let port = process.env.PORT || 5000;
 http.listen(port, function () {

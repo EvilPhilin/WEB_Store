@@ -9,8 +9,10 @@ let options =
 
     headers:
     {
-        test1: 'Test1',
-        test2: 'Test2'
+        command: 'order_info',// good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
+        arg1: '1',
+        arg2: '0000/01/01',
+        arg3: '1234/12/30'
     }
 };
 
