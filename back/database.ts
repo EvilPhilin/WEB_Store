@@ -1,6 +1,6 @@
 import Mongoose from 'mongoose';
 import Express from 'express';
-import Https from 'https';
+import Http from 'http';
 
 import ClientHandler from './clienthandler.js';
 
@@ -27,7 +27,7 @@ database.on("error", function()
 });
 
 const app = Express();
-const http = new Https.Server(app);
+const http = new Http.Server(app);
 
 app.get('/', (request: any, response: any) =>
 {

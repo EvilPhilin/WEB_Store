@@ -1,4 +1,4 @@
-import Https from 'https';
+import Http from 'http';
 
 const url = 'mus-market.herokuapp.com';
 
@@ -18,7 +18,7 @@ let options =
     }
 };
 
-Https.get(options, (res: any) =>
+Http.get(options, (res: any) =>
 {
     let data = '';
     res.on('data', (chunk: any) =>
