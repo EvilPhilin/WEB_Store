@@ -44,7 +44,7 @@ app.get('/args', (request: any, response: any) =>
 app.get('/func', async (request: any, response: any) =>
 {
     let result: any = await ClientHandler(request);
-    response.send(result);
+    response.send({ITOGO: result});
     response.end();
 })
 
