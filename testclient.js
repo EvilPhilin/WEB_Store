@@ -1,4 +1,4 @@
-import Http from 'http';
+import Https from 'https';
 const url = 'mus-market.herokuapp.com';
 let options = {
     hostname: url,
@@ -10,7 +10,7 @@ let options = {
         arg3: "1234/12/30"
     }
 };
-Http.get(options, (res) => {
+Https.get(options, (res) => {
     let data = '';
     res.on('data', (chunk) => {
         data += chunk;

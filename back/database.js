@@ -1,6 +1,6 @@
 import Mongoose from 'mongoose';
 import Express from 'express';
-import Http from 'http';
+import Https from 'https';
 import ClientHandler from './clienthandler.js';
 const url = "mongodb+srv://Evil_Philin:83913932133@webstoreproject.1rfah.mongodb.net/web_store?retryWrites=true&w=majority";
 Mongoose.connect(url, {
@@ -17,7 +17,7 @@ database.on("error", function () {
     console.log("Error connecting to database");
 });
 const app = Express();
-const http = new Http.Server(app);
+const http = new Https.Server(app);
 app.get('/', (request, response) => {
     response.send("<h1>Main page</h1>");
 });
