@@ -36,7 +36,7 @@ app.get('/', (request: any, response: any) =>
 
 app.get('/args', (request: any, response: any) =>
 {
-    response.send({ a1: request.get('arg1'), a2: request.get('arg1'), a3: request.get('arg1')});
+    response.send({ a1: request.get('arg1'), a2: request.get('arg2'), a3: request.get('arg3')});
 })
 
 app.get('/func', async (request: any, response: any) =>
