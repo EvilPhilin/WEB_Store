@@ -1,7 +1,7 @@
 import Mongoose from 'mongoose';
 import Express from 'express';
 import Http from 'http';
-import DBreq from './dbrequests.js';
+import ClientHandler from './clienthandler.js';
 const url = "mongodb+srv://Evil_Philin:83913932133@webstoreproject.1rfah.mongodb.net/web_store?retryWrites=true&w=majority";
 Mongoose.connect(url, {
     useNewUrlParser: true,
@@ -22,37 +22,7 @@ app.get('/', (request, response) => {
     response.send("<h1>Main page</h1>");
 });
 app.get('/func', async (request, response) => {
-    let func = request.get('command');
-    let result;
-    switch (func) //good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
-     {
-        case 'good_info':
-            {
-                result = await DBreq.good_info(parseInt(request.get('arg1')));
-                break;
-            }
-        case 'order_info':
-            {
-                result = await DBreq.order_info(parseInt(request.get('arg1')));
-                break;
-            }
-        case 'customer_orders':
-            {
-                result = await DBreq.customer_orders(parseInt(request.get('arg1')));
-                break;
-            }
-        case 'sum_for_period':
-            {
-                result = await DBreq.sum_for_period(parseInt(request.get('arg1')), request.get('arg2'), request.get('arg3'));
-                break;
-            }
-        default:
-            {
-                result = 'Wrong request type!';
-                break;
-            }
-    }
-    response.send(result);
+    response.send(await ClientHandler(request));
 });
 let port = process.env.PORT || 5000;
 http.listen(port, function () {
