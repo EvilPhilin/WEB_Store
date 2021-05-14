@@ -34,7 +34,7 @@ export default async function(request: any)
         case 'add_category':
         {
             result = await DBreq.add_category(parseInt(request.get('arg1')), request.get('arg2'));
-            break
+            break;
         }
         case 'add_customer':
         {
@@ -44,7 +44,7 @@ export default async function(request: any)
             let dob: string = request.get('arg4');
             let location: string = request.get('arg5');
             result = await DBreq.add_customer(id, fname, lname, dob, location);
-            break
+            break;
         }
         case 'add_model':
         {
@@ -54,7 +54,7 @@ export default async function(request: any)
             let category: number = parseInt(request.get('arg4'));
             let storage: number = parseInt(request.get('arg5'));
             result = await DBreq.add_model(id, name, price, category, storage);
-            break
+            break;
         }
         case 'add_order':
         {
@@ -65,7 +65,7 @@ export default async function(request: any)
             let dod: string = request.get('arg5');
             let delivery: string = request.get('arg6');
             result = await DBreq.add_order(id, customer, model, doo, dod, delivery);
-            break
+            break;
         }
         default:
         {
