@@ -30,10 +30,41 @@ export default async function(request: any)
             break;
         }
         /////////////////////////////////////////////// Inserts
-        //add_category(2),
+        //add_category(2), add_customer(5), add_model(5), add_order(6)
         case 'add_category':
         {
             result = await DBreq.add_category(parseInt(request.get('arg1')), request.get('arg2'));
+            break
+        }
+        case 'add_customer':
+        {
+            let id: number = parseInt(request.get('arg1'));
+            let fname: string = request.get('arg2');
+            let lname: string = request.get('arg3');
+            let dob: string = request.get('arg4');
+            let location: string = request.get('arg5');
+            result = await DBreq.add_customer(id, fname, lname, dob, location);
+            break
+        }
+        case 'add_model':
+        {
+            let id: number = parseInt(request.get('arg1'));
+            let name: string = request.get('arg2');
+            let price: number = parseInt(request.get('arg3'));
+            let category: number = parseInt(request.get('arg4'));
+            let storage: number = parseInt(request.get('arg5'));
+            result = await DBreq.add_model(id, name, price, category, storage);
+            break
+        }
+        case 'add_order':
+        {
+            let id: number = parseInt(request.get('arg1'));
+            let customer: number = parseInt(request.get('arg2'));
+            let model: number = parseInt(request.get('arg3'));
+            let doo: string = request.get('arg4');
+            let dod: string = request.get('arg5');
+            let delivery: string = request.get('arg6');
+            result = await DBreq.add_order(id, customer, model, doo, dod, delivery);
             break
         }
         default:
