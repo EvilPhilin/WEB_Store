@@ -4,9 +4,9 @@ let options = {
     hostname: url,
     path: '/func',
     headers: {
-        command: 'customer_orders',
-        arg1: '1',
-        arg2: '0000/01/01',
+        command: 'add_category',
+        arg1: '2',
+        arg2: 'Drums',
         arg3: '1234/12/30'
     }
 };

@@ -5,6 +5,7 @@ import Order from './Schemas/order.js';
 
 class funcs
 {
+    /////////////////////////////////////////////// Requests
     async order_info(__id: number)
     {
         let res: any;
@@ -58,6 +59,17 @@ class funcs
             });
         }
         return res;
+    }
+    /////////////////////////////////////////////// Inserts
+
+    async add_category(__id: number, __name: string)
+    {
+        let status: string = 'Ok!';
+        await Category.create({id_category: __id, name: __name}, function(err, cat)
+        {
+            if(err) status = err;
+        });
+        return status;
     }
 };
 

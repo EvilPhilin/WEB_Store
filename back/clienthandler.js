@@ -4,6 +4,7 @@ export default async function (request) {
     let result;
     switch (func) //good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
      {
+        /////////////////////////////////////////////// Requests
         case 'good_info':
             {
                 result = await DBreq.good_info(parseInt(request.get('arg1')));
@@ -26,11 +27,18 @@ export default async function (request) {
                 result = await DBreq.sum_for_period(parseInt(request.get('arg1')), start, end);
                 break;
             }
+        /////////////////////////////////////////////// Inserts
+        //add_category(2),
+        case 'add_category':
+            {
+                result = await DBreq.add_category(parseInt(request.get('arg1')), request.get('arg2'));
+                break;
+            }
         default:
             {
                 result = 'Wrong request type!';
                 break;
             }
     }
-    return result;
+    return { RESULT: result };
 }

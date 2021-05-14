@@ -28,7 +28,7 @@ app.get('/args', (request, response) => {
 });
 app.get('/func', async (request, response) => {
     let result = await ClientHandler(request);
-    response.send({ ITOGO: result });
+    response.send(result);
     response.end();
 });
 let port = process.env.PORT || 5000;

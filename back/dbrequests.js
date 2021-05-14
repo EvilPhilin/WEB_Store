@@ -1,6 +1,8 @@
+import Category from './Schemas/category.js';
 import Type from './Schemas/model.js';
 import Order from './Schemas/order.js';
 class funcs {
+    /////////////////////////////////////////////// Requests
     async order_info(__id) {
         let res;
         await Order.find({ id_order: __id }, function (err, order) {
@@ -45,6 +47,15 @@ class funcs {
             });
         }
         return res;
+    }
+    /////////////////////////////////////////////// Inserts
+    async add_category(__id, __name) {
+        let status = 'Ok!';
+        await Category.create({ id_category: __id, name: __name }, function (err, cat) {
+            if (err)
+                status = err;
+        });
+        return status;
     }
 }
 ;
