@@ -104,10 +104,10 @@ class funcs
         if(await Type.exists({id_model: __model})) mod_status = true;
 
         if(id_status && cus_status && mod_status) await Order.create({id_order: __id, customer: __customer, type: __model, date_of_order: __doo, date_of_delivery: __dod, delivery_type: __delivery},
-        function(err, ord)
+        async function(err, ord)
         {
             if(err) return;
-            Type.update({id_model: __model}, {$inc: {storage: -1}});
+            await Type.update({id_model: __model}, {$inc: {storage: -1}});
         });
         return {id: id_status, customer: cus_status, model: mod_status};
     }
