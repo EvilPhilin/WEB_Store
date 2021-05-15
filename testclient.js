@@ -4,8 +4,8 @@ let options = {
     hostname: url,
     path: '/func',
     headers: {
-        command: 'add_order',
-        arg1: '4',
+        command: 'order_info',
+        arg1: '1',
         arg2: '2',
         arg3: '13',
         arg4: '1111/11/11',
