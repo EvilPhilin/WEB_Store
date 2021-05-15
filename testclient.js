@@ -4,10 +4,13 @@ let options = {
     hostname: url,
     path: '/func',
     headers: {
-        command: 'add_category',
-        arg1: '2',
-        arg2: 'Drums',
-        arg3: '1234/12/30'
+        command: 'add_order',
+        arg1: '4',
+        arg2: '2',
+        arg3: '13',
+        arg4: '1111/11/11',
+        arg5: '1111/11/12',
+        arg6: 'Santa Claus'
     }
 };
 Http.get(options, (res) => {

@@ -9,10 +9,13 @@ let options =
 
     headers:
     {
-        command: 'add_category',// good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
-        arg1: '2',              // add_category(2), add_customer(5), add_model(5), add_order(6)
-        arg2: 'Drums',
-        arg3: '1234/12/30'
+        command: 'add_order',// good_info(1), order_info(1), customer_orders(1), sum_for_period(3)
+        arg1: '4',              // add_category(2), add_customer(5), add_model(5), add_order(6)
+        arg2: '2',
+        arg3: '13',
+        arg4: '1111/11/11',
+        arg5: '1111/11/12',
+        arg6: 'Santa Claus'
     }
 };
 
