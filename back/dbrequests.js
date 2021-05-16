@@ -37,7 +37,7 @@ class funcs {
         query = await Order.find({ type: __id, date_of_order: { "$gte": start, "$lte": end } }, function (err, orders) { });
         let i;
         for (i of query)
-            res += i[0].price;
+            res += i.price;
         return res;
     }
     /////////////////////////////////////////////// Inserts

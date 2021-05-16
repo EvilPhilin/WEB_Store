@@ -47,7 +47,7 @@ class funcs
         function(err, orders){});
 
         let i: any;
-        for(i of query) res += i[0].price;
+        for(i of query) res += i.price;
             
         return res;
     }
