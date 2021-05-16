@@ -19,9 +19,9 @@ database.on("error", function () {
 });
 const app = Express();
 const http = new Http.Server(app);
-app.use(Express.static(Path.resolve(__dirname, '../build')));
+app.use(Express.static(Path.join(__dirname, '/build')));
 app.get('/', (request, response) => {
-    response.sendFile(Path.resolve(__dirname, '../build', 'index.html'));
+    response.sendFile(Path.join(__dirname, '/build', 'index.html'));
     response.end();
 });
 app.get('/func', async (request, response) => {
