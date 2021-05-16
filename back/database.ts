@@ -51,6 +51,4 @@ http.listen(port, function()
 {
     console.log('listening on port ' + port);
 });
-let r = await DBreq.sum_for_period(4, '0000/01/01', '9999/12/31');
-console.log(r);
 //Mongoose.disconnect();
