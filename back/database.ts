@@ -30,11 +30,11 @@ database.on("error", function()
 const app = Express();
 const http = new Http.Server(app);
 
-app.use(Express.static(Path.join(__dirname, '/build')));
+app.use(Express.static(Path.join('.', '/build')));
 
 app.get('/', (request: any, response: any) =>
 {
-    response.sendFile(Path.join(__dirname, '/build', 'index.html'));
+    response.sendFile(Path.join('.', '/build', 'index.html'));
     response.end();
 })
 
