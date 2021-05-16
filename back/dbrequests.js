@@ -73,7 +73,7 @@ class funcs {
             id_status = false;
         if (await Category.exists({ id_category: __category }))
             cat_status = true;
-        if (id_status)
+        if (id_status && cat_status)
             await Type.create({ id_model: __id, name: __name, price: __price, category: __category, storage: __storage }, function (err, mod) { });
         return { id: id_status, category: cat_status };
     }
