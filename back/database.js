@@ -19,7 +19,7 @@ database.on("error", function () {
 const app = Express();
 const http = new Http.Server(app);
 app.get('/', (request, response) => {
-    response.send("<h1>Main page</h1>");
+    response.render('/build/index');
     response.end();
 });
 app.get('/args', (request, response) => {

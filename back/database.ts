@@ -31,7 +31,7 @@ const http = new Http.Server(app);
 
 app.get('/', (request: any, response: any) =>
 {
-    response.send("<h1>Main page</h1>");
+    response.render('/build/index');
     response.end();
 })
 
