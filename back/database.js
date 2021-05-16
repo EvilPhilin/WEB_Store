@@ -24,12 +24,10 @@ app.get('/', (request, response) => {
 });
 app.get('/args', (request, response) => {
     response.send({ a1: request.get('arg1'), a2: request.get('arg2'), a3: request.get('arg3') });
-    response.end();
 });
 app.get('/func', async (request, response) => {
     let result = await ClientHandler(request);
     response.send(result);
-    response.end();
 });
 let port = process.env.PORT || 5000;
 http.listen(port, function () {
