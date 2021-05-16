@@ -41,23 +41,21 @@ class funcs
 
     async sum_for_period(__id: number, start: string, end: string)
     {
-        let query: any;
         let res: number = 0;
         await Order.find( {date_of_order: {"$gte": start, "$lte": end}},
-        function(err, orders)
+        async function(err, orders)
         {
             if(err) return -1;
-            query = orders;
-        });
-        let i: any;
-        for(i of query)
-        {
-            await Type.find( {id_model: i.type}, function(err, mod)
+            let i: any;
+            for(i of orders)
             {
-                if(err) return -1;
-                res += mod[0].price;
-            });
-        }
+                await Type.find( {id_model: i.type}, function(err, mod)
+                {
+                    if(err) return -1;
+                    res += mod[0].price;
+                });
+            }
+        });
         return res;
     }
     /////////////////////////////////////////////// Inserts

@@ -4,10 +4,10 @@ let options = {
     hostname: url,
     path: '/func',
     headers: {
-        command: 'order_info',
+        command: 'sum_for_period',
         arg1: '1',
-        arg2: '2',
-        arg3: '13',
+        arg2: '0001/11/11',
+        arg3: '9999/12/11',
         arg4: '1111/11/11',
         arg5: '1111/11/12',
         arg6: 'Santa Claus'
