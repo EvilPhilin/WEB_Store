@@ -43,14 +43,12 @@ class funcs
     {
         let query: any;
         let res: number = 0;
-        query = await Order.find( {date_of_order: {"$gte": start, "$lte": end}},
+        query = await Order.find( {type: __id, date_of_order: {"$gte": start, "$lte": end}},
         function(err, orders){});
+
         let i: any;
-        for(i of query)
-        {
-            let tmp = await Type.find( {id_model: i.type}, function(err, mod){});
-            res += tmp[0].price;
-        }
+        for(i of query) res += i[0].price;
+            
         return res;
     }
     /////////////////////////////////////////////// Inserts
