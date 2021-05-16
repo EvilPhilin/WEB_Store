@@ -1,7 +1,7 @@
 import Category from './Schemas/category.js';
 import Customer from './Schemas/customer.js';
 import Type from './Schemas/model.js';
-import Order from './Schemas/order.js';
+import Order, { IOrder } from './Schemas/order.js';
 
 class funcs
 {
@@ -41,14 +41,21 @@ class funcs
 
     async sum_for_period(__id: number, start: string, end: string)
     {
-        let query: any;
         let res: number = 0;
-        query = await Order.find( {type: __id, date_of_order: {"$gte": start, "$lte": end}},
-        function(err, orders){});
+        let query = await Order.find( {type: __id, date_of_order: {"$gte": start, "$lte": end}},
+        function(err, orders){ });
+        let price_per_one: any;
+        await Type.findOne({ id_model: __id }, function(err, type)
+        {
+            price_per_one = type?.price;
+        })
+        
+        let i: IOrder;
+        for (i of query)
+        {
+            res += price_per_one;
+        }
 
-        let i: any;
-        for(i of query) res += i.price;
-            
         return res;
     }
     /////////////////////////////////////////////// Inserts

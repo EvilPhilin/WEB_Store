@@ -4,6 +4,7 @@ import Http from 'http';
 import Path from 'path';
 
 import ClientHandler from './clienthandler.js';
+import DBreq from './dbrequests.js';
 
 const url: string = "mongodb+srv://Evil_Philin:83913932133@webstoreproject.1rfah.mongodb.net/web_store?retryWrites=true&w=majority";
 
@@ -50,4 +51,6 @@ http.listen(port, function()
 {
     console.log('listening on port ' + port);
 });
+let r = await DBreq.sum_for_period(4, '0000/01/01', '9999/12/31');
+console.log(r);
 //Mongoose.disconnect();

@@ -32,12 +32,16 @@ class funcs {
         return res;
     }
     async sum_for_period(__id, start, end) {
-        let query;
         let res = 0;
-        query = await Order.find({ type: __id, date_of_order: { "$gte": start, "$lte": end } }, function (err, orders) { });
+        let query = await Order.find({ type: __id, date_of_order: { "$gte": start, "$lte": end } }, function (err, orders) { });
+        let price_per_one;
+        await Type.findOne({ id_model: __id }, function (err, type) {
+            price_per_one = type === null || type === void 0 ? void 0 : type.price;
+        });
         let i;
-        for (i of query)
-            res += i.price;
+        for (i of query) {
+            res += price_per_one;
+        }
         return res;
     }
     /////////////////////////////////////////////// Inserts
