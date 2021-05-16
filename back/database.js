@@ -19,14 +19,10 @@ database.on("error", function () {
 });
 const app = Express();
 const http = new Http.Server(app);
-app.use(Express.static(__dirname));
-app.use(Express.static(Path.join(__dirname, 'build')));
+app.use(Express.static(Path.resolve(__dirname, '../build')));
 app.get('/', (request, response) => {
-    response.sendFile(Path.join(__dirname, 'build', 'index.html'));
+    response.sendFile(Path.resolve(__dirname, '../build', 'index.html'));
     response.end();
-});
-app.get('/args', (request, response) => {
-    response.send({ a1: request.get('arg1'), a2: request.get('arg2'), a3: request.get('arg3') });
 });
 app.get('/func', async (request, response) => {
     let result = await ClientHandler(request);
