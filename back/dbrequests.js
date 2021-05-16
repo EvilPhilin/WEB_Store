@@ -68,11 +68,14 @@ class funcs {
     }
     async add_model(__id, __name, __price, __category, __storage) {
         let id_status = true;
+        let cat_status = false;
         if (await Type.exists({ id_model: __id }))
             id_status = false;
+        if (await Category.exists({ id_category: __category }))
+            cat_status = true;
         if (id_status)
             await Type.create({ id_model: __id, name: __name, price: __price, category: __category, storage: __storage }, function (err, mod) { });
-        return { id: id_status };
+        return { id: id_status, category: cat_status };
     }
     async add_order(__id, __customer, __model, __doo, __dod, __delivery) {
         let id_status = true;
