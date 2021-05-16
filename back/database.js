@@ -1,6 +1,7 @@
 import Mongoose from 'mongoose';
 import Express from 'express';
 import Http from 'http';
+import Path from 'path';
 import ClientHandler from './clienthandler.js';
 const url = "mongodb+srv://Evil_Philin:83913932133@webstoreproject.1rfah.mongodb.net/web_store?retryWrites=true&w=majority";
 Mongoose.connect(url, {
@@ -18,8 +19,10 @@ database.on("error", function () {
 });
 const app = Express();
 const http = new Http.Server(app);
+app.use(Express.static(__dirname));
+app.use(Express.static(Path.join(__dirname, 'build')));
 app.get('/', (request, response) => {
-    response.render('/build/index');
+    response.sendFile(Path.join(__dirname, 'build', 'index.html'));
     response.end();
 });
 app.get('/args', (request, response) => {

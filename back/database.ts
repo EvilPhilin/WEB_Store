@@ -1,6 +1,7 @@
 import Mongoose from 'mongoose';
 import Express from 'express';
 import Http from 'http';
+import Path from 'path';
 
 import ClientHandler from './clienthandler.js';
 
@@ -29,9 +30,11 @@ database.on("error", function()
 const app = Express();
 const http = new Http.Server(app);
 
+app.use(Express.static(__dirname));
+app.use(Express.static(Path.join(__dirname, 'build')));
 app.get('/', (request: any, response: any) =>
 {
-    response.render('/build/index');
+    response.sendFile(Path.join(__dirname, 'build', 'index.html'));
     response.end();
 })
 
