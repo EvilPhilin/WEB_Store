@@ -44,7 +44,6 @@ app.get('/args', (request: any, response: any) =>
 app.get('/func', async (request: any, response: any) =>
 {
     let result: any = await ClientHandler(request);
-    response.setHeader('Access-Control-Allow-Origin', '*');
     response.send(result);
     response.end();
 })
